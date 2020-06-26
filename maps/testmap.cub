@@ -1,0 +1,17 @@
+R 1280 720
+
+NO ./data/textures/Texture_Bloc_07_64x64.XPM
+SO ./data/textures/Texture_Bloc_06_64x64.XPM
+WE ./data/textures/Texture_Bloc_05_64x64.XPM
+EA ./data/textures/Texture_Bloc_04_64x64.XPM
+
+S  ./data/sprites/Soldier_Idle.xpm
+
+F 89, 89, 89
+C 40, 40, 40
+
+11111
+10201
+10001
+10N01
+11111
