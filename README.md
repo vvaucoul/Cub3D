@@ -8,7 +8,7 @@ Inputs are no longer avalable.<br>
 
 - Clone Repository
 ```bash
-git clone https://vvaucoul/Cub3D && cd Cub3D
+git clone https://github.com/vvaucoul/Cub3D && cd Cub3D
 ```
 
 - Compilation
