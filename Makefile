@@ -3,17 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vvaucoul <vvaucoul@student.42.fr>          +#+  +:+       +#+         #
+#    By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/28 16:17:13 by vvaucoul          #+#    #+#              #
-#    Updated: 2020/02/22 15:13:59 by vvaucoul         ###   ########.fr        #
+#    Updated: 2022/10/28 15:58:47 by vvaucoul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### COMPILATION ###
 CC				= gcc
 CFLAGS			= -I $(HEADER)
-LIBS			= -lmlx -framework OpenGL -framework AppKit -lm -Wall -Wextra -Werror
+
+OS_VERSION		= $(shell uname -s)
+
+ifeq ($(OS_VERSION), Linux)
+	LIBS			= -L ./libs/ -lmlx -lmlx -lXext -lX11 -lm -Wall -Wextra -Werror
+else
+	LIBS			= -lmlx -framework OpenGL -framework AppKit -lm -Wall -Wextra -Werror
+endif
 
 ### EXECUTABLE ###
 NAME			= Cub3D
@@ -132,42 +139,42 @@ RM				= rm -f
 all:			obj_dir comp_libs $(NAME)
 
 comp_libs:
-				@echo "$(RED)    --->|Create LIBFT lib|<----$(NOC)"
+				@printf "$(RED)    --->|Create LIBFT lib|<----$(NOC)\n"
 				@make -C $(LIB_DIR)
-				@echo Copying $(LIBFT) to root dir.
+				@printf Copying $(LIBFT) to root dir\n.
 				@cp $(LIB_DIR)$(LIBFT) $(ALL_LIB_DIR)
-				@echo "$(RED)    --->|Create LIBFT_UP lib|<----$(NOC)"
+				@printf "$(RED)    --->|Create LIBFT_UP lib|<----$(NOC)\n"
 				@make -C $(LIB_UP_DIR)
-				@echo Copying $(LIBFT_UP) to root dir.
+				@printf Copying $(LIBFT_UP) to root dir\n.
 				@cp $(LIB_UP_DIR)$(LIBFT_UP) $(ALL_LIB_DIR)
 
 $(NAME):
-				@echo "\n\033[33m\t-------------------"
-				@echo "\033[33m\t| ! Compilation ! |"
-				@echo "\033[33m\t-------------------\033[00m"
+				@printf "\n\033[33m\t-------------------\n"
+				@printf "\033[33m\t| ! Compilation ! |\n"
+				@printf "\033[33m\t-------------------\033[00m\n"
 				@$(CC) $(SRCS) $(CFLAGS) -L $(ALL_LIB_DIR) -lft -lft_upgraded $(LIBS) -o $(NAME)
-				@echo "\033[32m\t----------------------"
-				@echo "\033[32m\t|   CUB3D COMPILED   |"
-				@echo "\033[32m\t----------------------\033[00m"
+				@printf "\033[32m\t----------------------\n"
+				@printf "\033[32m\t|   CUB3D COMPILED   |\n"
+				@printf "\033[32m\t----------------------\033[00m\n"
 
 obj_dir:
-				@echo "$(BLUE)    --->|Create obj folder|<----$(NOC)"
+				@printf "$(BLUE)    --->|Create obj folder|<----$(NOC)\n"
 				@mkdir -p $(OBJ_PATH)
-				@echo "$(BLUE)    --->|Create libraries folder|<----$(NOC)"
+				@printf "$(BLUE)    --->|Create libraries folder|<----$(NOC)\n"
 				@mkdir -p $(ALL_LIB_DIR)
 
 clean:
-				@echo "$(RED)    --->|Remove all .o files|<----$(NOC)"
+				@printf "$(RED)    --->|Remove all .o files|<----$(NOC)\n"
 				@$(RM) $(OBJS)
-				@echo "$(RED)    --->|Remove all libraries|<----$(NOC)\n"
+				@printf "$(RED)    --->|Remove all libraries|<----$(NOC)\n\n"
 				@cd $(LIB_DIR) && $(MAKE) fclean
 				@cd $(LIB_UP_DIR) && $(MAKE) fclean
 				@$(RM) -r $(ALL_LIB_DIR)
 				@$(RM) -r $(OBJ_PATH)
-				@echo "\n"
+				@printf "\n"
 
 fclean:			clean
-				@echo "$(RED)    --->|Binary file deleted|<----$(NOC)"
+				@printf "$(RED)    --->|Binary file deleted|<----$(NOC)\n"
 				@$(RM) $(NAME)
 
 re:				fclean all

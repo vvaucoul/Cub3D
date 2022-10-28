@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_res.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaucoul <vvaucoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 19:31:03 by vvaucoul          #+#    #+#             */
-/*   Updated: 2020/02/21 17:14:06 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:57:53 by vvaucoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,8 @@ t_vector2d		parse_res(char *str)
 	char		*a_res;
 	char		*tmp;
 	int			i;
-	int			j;
 
 	i = 0;
-	j = 0;
 	a_res = malloc(sizeof(char) * RES_MAX_LEN);
 	ft_skip_spaces(str, &i);
 	tmp = ft_strtrunc_del(&str[i], ' ');

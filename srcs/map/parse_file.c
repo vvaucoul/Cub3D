@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaucoul <vvaucoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 15:22:54 by vvaucoul          #+#    #+#             */
-/*   Updated: 2020/02/21 17:07:40 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:57:41 by vvaucoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,9 @@ static t_bool	switch_parse(t_game *game, char *line, char *sw)
 int				parse_file(t_game *game, char *pathfile)
 {
 	char	*line;
-	int		i;
 
 	if (!(load_file(game, pathfile)))
 		game_error(game, ERROR_INVALID_MAP, FALSE, TRUE);
-	i = 0;
 	while ((get_next_line(game->file.fd, &line)) > 0)
 	{
 		if (line[0])

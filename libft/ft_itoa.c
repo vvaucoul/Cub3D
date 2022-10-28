@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaucoul <vvaucoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 10:28:37 by vvaucoul          #+#    #+#             */
-/*   Updated: 2019/11/08 19:49:08 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:55:59 by vvaucoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,8 @@ static int		n_lenght(int n)
 
 static int		is_min_int(int n, char **str)
 {
-	int i;
-
 	if (n != -2147483648)
 		return (0);
-	i = 0;
 	*str = ft_strdup("-2147483648");
 	return (1);
 }
@@ -57,7 +54,7 @@ char			*ft_itoa(int n)
 		return (NULL);
 	if (is_min_int(n, &str) == 1)
 		return (str);
-	if ((isneg = ((n >= -2147483648 && n < 0) ? 1 : 0)) == 1)
+	if ((isneg = ((n > -2147483648 && n < 0) ? 1 : 0)) == 1)
 		n *= -1;
 	i = (isneg ? 1 : 1);
 	while (size - i >= 0)

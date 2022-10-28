@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_key.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaucoul <vvaucoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 18:11:47 by vvaucoul          #+#    #+#             */
-/*   Updated: 2020/02/20 16:48:49 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:57:29 by vvaucoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 
 t_bool				add_key_to_dic(t_game *game, char *key)
 {
-	int i;
-
-	i = 0;
 	if (ft_isdigit(key[0]))
 		return (FALSE);
 	if (!(game->file.keyfounds[game->file.actu_key] = ft_strdup(key)))

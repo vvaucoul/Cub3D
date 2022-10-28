@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spritecasting_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaucoul <vvaucoul@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vvaucoul <vvaucoul@student.42.Fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 13:02:36 by vvaucoul          #+#    #+#             */
-/*   Updated: 2020/02/19 18:36:14 by vvaucoul         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:58:07 by vvaucoul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,12 @@ t_vector dsp)
 int					renew_sprite_order(t_game *game)
 {
 	t_bool		valid;
-	int			i;
 	float		dist_sprite_01;
 	float		dist_sprite_02;
 
 	valid = FALSE;
 	while (!valid)
 	{
-		i = 0;
 		valid = TRUE;
 		dist_sprite_01 = 0.0;
 		dist_sprite_02 = 0.0;
